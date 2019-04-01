@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Style-Type" content="text/css" /> 
+    <title>Exercise_1.html</title>
+    <link href="/library/skin/tool_base.css" type="text/css" rel="stylesheet" media="all" />
+    <link href="/library/skin/morpheus-default/tool.css" type="text/css" rel="stylesheet" media="all" />
+    <script type="text/javascript" src="/library/js/headscripts.js"></script>
+    <style>body { padding: 5px !important; }</style>
+  </head>
+  <body>
+<script src="https://unpkg.com/rxjs/bundles/rxjs.umd.min.js"></script>
+<!-- <p>paragraph</p> -->
+<script>
+
+    const { interval, of } = rxjs;
+    const { map, flatMap, mergeAll, take } = rxjs.operators;
+
+    interval(100) // ms
+        .pipe(
+            take(10),
+            // map(() => of(1, 2, 3)),
+            // mergeAll()
+            flatMap(x => of(1, 2, 3)),
+    )
+
+
+    .subscribe(x => console.log(x));
+	
+	function printText(text_1,array_2){
+		let  textArray=text_1.split(" ");
+		for (let temp in textArray){
+			if( array_2.strem.contains 
+		}
+	}
+	printText("this house is nice",['house','nice']);
+
+</script>
+  </body>
+</html>

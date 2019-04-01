@@ -13,27 +13,25 @@
 <!-- <p>paragraph</p> -->
 <script>
 
-    const { interval, of } = rxjs;
-    const { map, flatMap, mergeAll, take } = rxjs.operators;
-
-    interval(100) // ms
-        .pipe(
-            take(10),
-            // map(() => of(1, 2, 3)),
-            // mergeAll()
-            flatMap(x => of(1, 2, 3)),
-    )
-
-
-    .subscribe(x => console.log(x));
-	
-	function printText(text_1,array_2){
-		let  textArray=text_1.split(" ");
-		for (let temp in textArray){
-			if( array_2.strem.contains 
-		}
+/// parte 1 
+    printText= function(array_2){
+		let  textArray=this.split(" ")
+    .map(e=>{
+    		if(array_2.find(b=>b===e,false))
+      		return "*****";
+        else
+        	return e;
+    }).reduce((j,k)=>j+" "+k,"") ;
+    
+    return textArray;
+   // console.log(textArray);
 	}
-	printText("this house is nice",['house','nice']);
+  
+String.prototype.filterwords=printText;
+console.log("step1");
+console.log("this house is nice".filterwords( ['house','nice']));
+console.log("step2");
+/// parte 1 
 
 </script>
   </body>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Style-Type" content="text/css" /> 
+    <title>Exercise_2.html</title>
+    <link href="/library/skin/tool_base.css" type="text/css" rel="stylesheet" media="all" />
+    <link href="/library/skin/morpheus-default/tool.css" type="text/css" rel="stylesheet" media="all" />
+    <script type="text/javascript" src="/library/js/headscripts.js"></script>
+    <style>body { padding: 5px !important; }</style>
+  </head>
+  <body>
+<script src="https://unpkg.com/rxjs/bundles/rxjs.umd.min.js"></script>
+<!-- <p>paragraph</p> -->
+<script>
+
+const item={
+	"name":"Avocado",
+	"type":"fruit",
+	"category":"food",
+	"price":200
+}
+
+function applyCoupon(father){
+	return function(b){
+		//console.log(father);
+		father.price=father.price-father.price*b/100
+		//console.log(father);
+		return father;
+	}
+} 
+
+
+//console.log(applyCoupon(item)(10).price+"adsf")
+if(applyCoupon(item)(10).price ===180)
+{console.log("perfect :-)");}
+else
+{	console.log("i didn't know what happens");}
+
+</script>
+  </body>
+</html>

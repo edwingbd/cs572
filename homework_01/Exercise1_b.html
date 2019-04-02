@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Style-Type" content="text/css" /> 
-    <title>Exercise_1_C-async.html</title>
+    <title>Exercise_1_b-promise</title>
     <link href="/library/skin/tool_base.css" type="text/css" rel="stylesheet" media="all" />
     <link href="/library/skin/morpheus-default/tool.css" type="text/css" rel="stylesheet" media="all" />
     <script type="text/javascript" src="/library/js/headscripts.js"></script>
@@ -15,20 +15,18 @@
 
 /// parte 3
 String.prototype.filterwords= function(array_2){
-			  return new Promise((resolve, reject)=>{
-				const textArray = this.split(" ")
-			.map(e=>{
-					if(array_2.find(b=>b===e,false))
-					return "*****";
-				else
-					return e;
-			}).reduce((j,k)=>j+" "+k,"") ;
-			
-			resolve( textArray);
-			})
-			
-			
-		}
+    return new Promise((resolve, reject)=>{
+        const textArray = this.split(" ")
+                                .map(e=>{
+                                if(array_2.find(b=>b===e,false))
+                                    return "*****";
+                                else
+                                    return e;
+                                }).reduce((j,k)=>j+" "+k,"") ;
+
+    resolve( textArray);
+    })
+    }
 
    // console.log(textArray);
 	

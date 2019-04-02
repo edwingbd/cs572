@@ -2,41 +2,36 @@
 <html>
   <head>
     <meta http-equiv="Content-Style-Type" content="text/css" /> 
-    <title>Exercise_1.html</title>
+    <title>Homework2 - >  Exercise_1 </title>
     <link href="/library/skin/tool_base.css" type="text/css" rel="stylesheet" media="all" />
     <link href="/library/skin/morpheus-default/tool.css" type="text/css" rel="stylesheet" media="all" />
     <script type="text/javascript" src="/library/js/headscripts.js"></script>
     <style>body { padding: 5px !important; }</style>
   </head>
   <body>
+<h2>Explain Why do we want somethionge to use setImmediate instead of using setTimeOut</h2>
+<p> answerd: the first thing that i noticed is that the SetImmediate does not work 
+in all the browsers, i try to do it in this document but does not work, about the queue firts the event loop execute the 
+the timers and then the check that means that something in the check queue needs to wait until finish tiemrs, U/O, IDLE, 
+INCOMING CONNECTIONS and in this momment execute, in this case probably y need that it happens in other ways is more faster timer.
+<h2>Explain the difference between process.nextTick and setImmediate</h2>
+<p> answerd: the process.nextTick is like the interruption system, it happens inmeditly 
+when there is something and interrup the event loop, does not matter if it is finish or not in the case of 
+setImmediate is executed after the 4 queue named previously.
 <script src="https://unpkg.com/rxjs/bundles/rxjs.umd.min.js"></script>
 <!-- <p>paragraph</p> -->
 <script>
+setImmediate(function() {
+  console.log('setImmediate2');
+});
 
-/// parte 3
-String.prototype.filterwords=async function(array_2){
-		try{
-			let result;
-			let  textArray=this.split(" ")
-			.map(e=>{
-					if(array_2.find(b=>b===e,false))
-					return "*****";
-				else
-					return e;
-			}).reduce((j,k)=>j+" "+k,"") ;
-			
-			await textArray;
-		}
-		catch(error){
-			return await error;//with this print the error instead of the textarray
-		}
-   // console.log(textArray);
-	}
-console.log("step1");
-console.log("this house is nice".filterwords( ['house','nice']));
-console.log("step2");
-/// parte 1 
+setTimeout(function() {
+  console.log('setTimeout');
+}, 0);
 
+setImmediate(function() {
+  console.log('setImmediate');
+});
 </script>
   </body>
 </html>

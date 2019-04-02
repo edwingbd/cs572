@@ -25,7 +25,7 @@ function isWeekend(){
   {dayW:5,text:'weekday'},
   {dayW:6,text:'weekend'} ];
   return (arreglo.filter(e=>e.dayW===day)
-  	.map(b=>b.text));
+  	.map(b=>b.text).reduce((str1,str2)=> str1+str2 ) );
 }
 
 console.log(isWeekend());

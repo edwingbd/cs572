@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Style-Type" content="text/css" /> 
-    <title>Exercise_1_C-async.html</title>
+    <title>Exercise_2.html</title>
     <link href="/library/skin/tool_base.css" type="text/css" rel="stylesheet" media="all" />
     <link href="/library/skin/morpheus-default/tool.css" type="text/css" rel="stylesheet" media="all" />
     <script type="text/javascript" src="/library/js/headscripts.js"></script>
@@ -12,30 +12,23 @@
 <script src="https://unpkg.com/rxjs/bundles/rxjs.umd.min.js"></script>
 <!-- <p>paragraph</p> -->
 <script>
+function isWeekend(){
+  const todayDate = new Date();
+  const day = todayDate.getDay();
+  
+  const arreglo = [
+  {dayW:0,text:'weekend'},
+  {dayW:1,text:'weekday'},
+  {dayW:2,text:'weekday'},
+  {dayW:3,text:'weekday'},
+  {dayW:4,text:'weekday'},
+  {dayW:5,text:'weekday'},
+  {dayW:6,text:'weekend'} ];
+  return (arreglo.filter(e=>e.dayW===day)
+  	.map(b=>b.text));
+}
 
-/// parte 3
-String.prototype.filterwords=async function(array_2){
-		try{
-			let result;
-			let  textArray=this.split(" ")
-			.map(e=>{
-					if(array_2.find(b=>b===e,false))
-					return "*****";
-				else
-					return e;
-			}).reduce((j,k)=>j+" "+k,"") ;
-			
-			return await textArray;
-		}
-		catch(error){
-			return await error;//with this print the error instead of the textarray
-		}
-   // console.log(textArray);
-	}
-console.log("step1");
-console.log("this house is nice".filterwords( ['house','nice']));
-console.log("step2");
-
+console.log(isWeekend());
 </script>
   </body>
 </html>

@@ -12,30 +12,51 @@
 <script src="https://unpkg.com/rxjs/bundles/rxjs.umd.min.js"></script>
 <!-- <p>paragraph</p> -->
 <script>
-
-/// parte 3
-String.prototype.filterwords=async function(array_2){
-		try{
-			let result;
-			let  textArray=this.split(" ")
-			.map(e=>{
-					if(array_2.find(b=>b===e,false))
+const { Observable, of, from } = rxjs;
+const { map, reduce } = rxjs.operators;
+	
+const promiseFun = async function(array_2){
+	    const textArray = this.split(" ");		
+		from(textArray)
+         .pipe(
+             map(e=>{if(array_2.find(b=>b===e,false))
 					return "*****";
 				else
-					return e;
-			}).reduce((j,k)=>j+" "+k,"") ;
-			
-			await textArray;
-		}
-		catch(error){
-			return await error;//with this print the error instead of the textarray
-		}
-   // console.log(textArray);
-	}
+					return e;}),
+			reduce((j,k)=>j+" "+k,"") 
+         )
+         .subscribe((obj) => console.log(obj))
+    }
+    // from(data)
+    //     .pipe(
+    //         map((obj) => ({ msg: `${obj.name} is awesome!` }))
+    //     )
+    //     .subscribe((obj) => console.log(obj.msg)
+    String.prototype.filterwords= promiseFun;
+console.log("usin Observable");
 console.log("step1");
-console.log("this house is nice".filterwords( ['house','nice']));
+"this house is nice".filterwords( ['house','nice']);
 console.log("step2");
-/// parte 1 
+
+
+     
+
+
+var obs = Observable.create(function (observer) {
+    for (let i = 90; i < 100; i++) {
+        observer.next(i);
+    }
+    observer.next('CS572');
+    setTimeout(() => {
+        observer.next('CS472');
+        observer.error('Something went Wrong')
+        observer.complete();
+    }, 3000);
+});
+var subscription = obs.subscribe(
+    function (x) { console.log(`Value: ${x}`); },
+    function (err) { console.error(err); },
+    function () { console.info(`Done`); });
 
 </script>
   </body>

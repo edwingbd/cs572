@@ -10,7 +10,9 @@
   </head>
   <body>
 <h2>Explain Why do we want somethionge to use setImmediate instead of using setTimeOut</h2>
-<p> answerd: the first thing that i noticed is that the SetImmediate does not work 
+<p> 
+it are waiting in the idle process 
+answerd: the first thing that i noticed is that the SetImmediate does not work 
 in all the browsers, i try to do it in this document but does not work, about the queue firts the event loop execute the 
 the timers and then the check that means that something in the check queue needs to wait until finish tiemrs, U/O, IDLE, 
 INCOMING CONNECTIONS and in this momment execute, in this case probably y need that it happens in other ways is more faster timer.

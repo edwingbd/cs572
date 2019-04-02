@@ -13,9 +13,10 @@
 <!-- <p>paragraph</p> -->
 <script>
 const { Observable, of, from } = rxjs;
-const { map, reduce } = rxjs.operators;
+const { map, reduce,filter } = rxjs.operators;
 	
 const promiseFun = async function(array_2){
+
 	    const textArray = this.split(" ");		
 		from(textArray)
          .pipe(
@@ -37,26 +38,6 @@ console.log("usin Observable");
 console.log("step1");
 "this house is nice".filterwords( ['house','nice']);
 console.log("step2");
-
-
-     
-
-
-var obs = Observable.create(function (observer) {
-    for (let i = 90; i < 100; i++) {
-        observer.next(i);
-    }
-    observer.next('CS572');
-    setTimeout(() => {
-        observer.next('CS472');
-        observer.error('Something went Wrong')
-        observer.complete();
-    }, 3000);
-});
-var subscription = obs.subscribe(
-    function (x) { console.log(`Value: ${x}`); },
-    function (err) { console.error(err); },
-    function () { console.info(`Done`); });
 
 </script>
   </body>

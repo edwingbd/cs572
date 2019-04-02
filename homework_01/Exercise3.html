@@ -20,22 +20,14 @@ const item={
 	"price":200
 }
 
-function applyCoupon(father){
-	return function(b){
-		//console.log(father);
-		father.price=father.price-father.price*b/100
-		//console.log(father);
-		return father;
-	}
-} 
+const applyCoupon = father=>discount=>{
+father.price=father.price-father.price*discount/100;
+return father };
 
-
-//console.log(applyCoupon(item)(10).price+"adsf")
 if(applyCoupon(item)(10).price ===180)
 {console.log("perfect :-)");}
 else
 {	console.log("i didn't know what happens");}
-
 </script>
   </body>
 </html>

@@ -1,0 +1,27 @@
+{
+  "name": "classmwa",
+  "version": "2.5.1",
+  "description": "is just a test how to create a module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edwingbd/cs572.git"
+  },
+  "keywords": [
+    "edwin",
+    "bernal"
+  ],
+  "author": "edwin bernal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edwingbd/cs572/issues"
+  },
+  "homepage": "https://github.com/edwingbd/cs572#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "module": "^1.2.5"
+  }
+}

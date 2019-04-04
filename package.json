@@ -22,6 +22,7 @@
   "homepage": "https://github.com/edwingbd/cs572#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "module": "^1.2.5"
+    "module": "^1.2.5",
+    "nodemon": "^1.18.10"
   }
 }

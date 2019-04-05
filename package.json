@@ -23,6 +23,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "module": "^1.2.5",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "rxjs": "^6.4.0"
   }
 }

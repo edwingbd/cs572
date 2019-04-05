@@ -33,7 +33,8 @@ function checkSystem(){
                 }
             }
             //console.log("System is checked successfully.");
-            //console.log("totalMem= "+ totalMem+" freeMem="+freeMem+" cpus="+cpus.length); 
+            // always give the data to the user
+            Obser.next("totalMem= "+ totalMem+" freeMem="+freeMem+" cpus="+cpus.length); 
         });
 }
 

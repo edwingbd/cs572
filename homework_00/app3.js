@@ -22,5 +22,5 @@ console.log(counter.value());
 console.log(counter.value());
 console.log("fin "+counter);
 //})();
-};
+};// i dont understand the ide in the slide 24 lecture 1
 console.log("fin 2 "+counter);

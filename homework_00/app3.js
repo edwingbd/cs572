@@ -1,4 +1,6 @@
-( function(){
+{
+//( function(){
+
     var counter = (function () {
     var privateCounter = 0;
     function changeBy(val){
@@ -18,4 +20,7 @@ console.log(counter.value());
 counter.decrement();
 console.log(counter.value());
 console.log(counter.value());
-})();
+console.log("fin "+counter);
+//})();
+};
+console.log("fin 2 "+counter);

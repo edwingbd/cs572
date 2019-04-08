@@ -11,8 +11,8 @@ const url = 'mongodb://homework01:homework01@ds233806.mlab.com:33806/homework01'
 const client = new MongoClient(url); 
 
 
-function CallDdDecrypt(){
-  const result ="";
+function CallDdDecrypt(response){
+  let result ="";
   client.connect(function(err) {
     if (err) throw err;
       const db = client.db('homework01'); 
@@ -23,11 +23,13 @@ function CallDdDecrypt(){
         console.log(result.key);
         console.log(result.message);
         const encryptor = require('simple-encryptor')(result.key);
-        console.log(encryptor.decrypt(result.message) );
-        result=encryptor.decrypt(result.message);
+        result=JSON.stringify({secret:encryptor.decrypt(result.message)})
+        console.log(result);
+        response.send(result);
+        //return result;
       });
   });
-  return result;
+  //return result;
 }
 
 const express = require('express');
@@ -35,10 +37,24 @@ const app = express();
 
 app.get("/secret",function(request,response){
   response.set('Content-Type', 'application/json');
-  response.send(JSON.stringify(CallDdDecrypt()));
-  response.end();
+  CallDdDecrypt(response);
+  // const result = CallDdDecrypt();
+  // console.log("At secret", result);
+  //response.send("popo" );
 });
+
+app.get("/test",function(request,response){
+  response.setHeader('Content-Type', 'application/json');
+  response.send(JSON.stringify({key:"value"}));
+});
+
+
 
 app.listen(3000);
 
+
+function newFunction(response) {
+  response.send(CallDdDecrypt());
+  response.end();
+}
 //CallDdDecrypt();

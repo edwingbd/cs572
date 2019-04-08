@@ -11,6 +11,9 @@ function findMax() {
 } 
 var x = findMax(1, 123, 500, 115, 44, 88); // 500 
 console.log(x);
+const max = Infinity - 100;
+console.log(max);
+console.log(-Infinity);
 var x = findMax(5, 32, 24); // 32 
 console.log(x);
 
@@ -30,4 +33,4 @@ function testParametor(a,b,c){
     const testva = "cosa";
 }
 //console.log(testva);
-    
+

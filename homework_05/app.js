@@ -67,5 +67,14 @@ app.get("/users", funCache(),  (req,res)=>{
     },1000);
 })
 
+// error handler
+app.use(function (err, req, res, next) {
+    res.status(err.status || 500);
+    res.json({
+        message: "not found " + err.message,
+        error: err
+    });
+});
+
 app.listen(3000);// this is bootup
 

@@ -1,16 +1,12 @@
 // Exercise — Fetch and Insert
 // 1. Create a new DB called homework07 (Local or DaaS)
-
 // 2. Implement REST API with Express for all CRUD operations so you
-// may: Find/FindOne/Add/Update/Delete documents
-// (Use appropriate HTTP verbs for an entity called: lectures,
-// document structure is: {_id, course, lecture})
-
+    // may: Find/FindOne/Add/Update/Delete documents
+    // (Use appropriate HTTP verbs for an entity called: lectures,
+    // document structure is: {_id, course, lecture})
 // 3. Test your API using REST Client
-
 // 4. Implement a route (POST /search/:q) to search if the lecture
-// name has the passed :q parameter. Send the results as JSON.
-
+    // name has the passed :q parameter. Send the results as JSON.
 // 5. Upload your code to Github (without dependencies).
 
 const encrypt = require('simple-encryption');

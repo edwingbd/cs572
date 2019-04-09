@@ -1,3 +1,16 @@
+// Exercise
+// Create an Express application that implements a Rest API for an entity // called grades:
+
+// [{id: 1, name: “Asaad Saad", course: "CS572", grade: 95}]
+
+// Write routes for the following CRUD operations and use the proper
+// HTTP verbs (GET one and all, POST, and DELETE).
+// ° Test with HTTP Client extension for VSCode.
+// * Your API accepts and returns JSON data.
+// * Log all requests to a file access. log using morgan middleware.
+// ¢ Write a custom middleware to verify if a user passes a valid JSON.
+// * Accept cross domain XHR requests using cors middleware.
+
 let express=require('express');
 let request = require("request");
 const bodyParser = require('body-parser');

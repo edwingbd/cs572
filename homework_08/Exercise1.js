@@ -55,42 +55,53 @@ db.restaurants.find({cuisine:{$regex:"ces$"} },{_id:0,district:1,cuisine:1 ,rest
 // cuisine for those restaurants which contains ‘Reg’ as three letters
 // somewhere in its name.
 db.restaurants.find({name:{$regex:"Reg"} },{_id:0,district:1,cuisine:1 ,restaurant_id:1,name:1})
-
+db.restaurants.find({name:{$regex:"Reg",$options:"i"} },{_id:0,district:1,cuisine:1 ,restaurant_id:1,name:1})
 // 13. Write a MongoDB query to find the restaurants which belongs to
 // the district Bronx and prepared either American or Chinese dish.
-
+db.restaurants.find({district:"Bronx",cuisine:{$in:["American ","Chinese"]} },{_id:0 ,restaurant_id:1,name:1,cuisine:1})
 // 14. Write a MongoDB query to find the restaurant Id, name, district and
 // cuisine for those restaurants which belongs to the district Staten
 // Island or Queens or Bronx or Brooklyn.
-
+db.restaurants.find({district:{$in:["Staten Island","Brooklyn", "Bronx", "Queens"]} },{_id:0,district:1 ,restaurant_id:1,name:1,cuisine:1})
 // 15. Write a MongoDB query to find the restaurant Id, name, district and
 // cuisine for those restaurants which are not belonging to the district
 // Staten Island or Queens or Bronx or Brooklyn.
-
+db.restaurants.find({district:{$nin:["Staten Island","Brooklyn", "Bronx", "Queens"]} },{_id:0,district:1 ,restaurant_id:1,name:1,cuisine:1})
 // 16. Write a MongoDB query to find the restaurant Id, name, district and
 // cuisine for those restaurants which achieved a score which is not
 // more than 10.
-
+db.restaurants.find({ "grades.score":{$lte:10}},{_id:0,restaurant_id:1,district:1,name:1,cuisine:1,grades:1})
+//error
+db.restaurants.find({ $not:[{"grades.score":{$gt:10}}]},{_id:0,restaurant_id:1,district:1,name:1,cuisine:1,grades:1})
+db.restaurants.find({ $nor:[{"grades.score":{$gt:10}}]},{_id:0,restaurant_id:1,district:1,name:1,cuisine:1,grades:1})
 // 17. Write a MongoDB query to find the restaurant Id, name, address
 // and geographical location for those restaurants where 2nd element
 // of coord array contains a value which is more than 42 and up to 52.
+db.restaurants.find({"address.coord.1":{$gt:42, $lte:52}},{restaurant_id:1, name:1, address:1})
 
 // 18. Write a MongoDB query to arrange the name of the restaurants in
 // ascending order along with all the columns.
-
+db.restaurants.find({},{}).sort({name:1})
 // 19. Write a MongoDB query to arrange the name of the restaurants in
 // descending order along with all the columns.
+db.restaurants.find({},{}).sort({name:-1})
 
 // 20. Write a MongoDB query to arrange the name of the cuisine in
 // ascending order and for those same cuisine district should be in
 // descending order.
+db.restaurants.find({},{name:1, cuisine:1, district:1}).sort({cuisine:1,district:-1})
 
 // 21. Write a MongoDB query to know whether all the addresses
 // contains the street or not.
+db.restaurants.find({name:{$regex:"^Mad"} },{_id:0,"address.coords.0":1,"address.cords.1":1 ,district:1,cuisine:1 ,restaurant_id:1,name:1})
+db.restaurants.count({"address.street":{$exists:false}},{})
 
 // 22. Write a MongoDB query which will select all documents in the
 // restaurants collection where the coord field value is Double.
-
+db.restaurants.find({"address.coord":{$type:1}},{})
 // 23. Write a MongoDB query to find the restaurant name, district,
 // longitude and latitude and cuisine for those restaurants which
 // contains 'Mad' as first three letters of its name.
+db.restaurants.find({name:{$regex:"^Mad"} },{_id:0,'address.coord':1 ,district:1,cuisine:1 ,restaurant_id:1,name:1})
+db.restaurants.find({name:{$regex:"^Mad"} },{_id:0,'address.coord.1':1,'address.coord.0':1 ,district:1,cuisine:1 ,restaurant_id:1,name:1})
+db.restaurants.find({name:{$regex:"^Mad"} },{_id:0,"address.coords.0":1,"address.cords.1":1 ,district:1,cuisine:1 ,restaurant_id:1,name:1})

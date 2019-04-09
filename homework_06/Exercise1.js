@@ -5,6 +5,7 @@ var fs = require('fs')
 var morgan = require('morgan')
 var path = require('path')
 let cors=require('cors');
+const port=3000;
 
 //data
 let grades=[
@@ -51,8 +52,10 @@ app.get('/grades/:id',function(req,res){
 );
 
 // post
+// this is for create a new one
 app.post('/grades',function(req,res){    
     grades.push(req.body);
+    console.log("creation of grade");
     res.send(req.body);
     res.end();    
 }
@@ -84,3 +87,5 @@ app.delete('/grades/:id',function(req,res){
      res.end();   
 }
 );
+
+app.listen(port);

@@ -1,17 +1,30 @@
+// HTTP Verbs and CRUD Consistency
+// The following are the most commonly used server architecture HTTP
+// methods and their corresponding Express methods:
+// ¢ GET app.get() Retrieves an entity or a list of entities
+// ¢ HEAD app.head() Same as GET, only without the body
+// ¢ POST app.post() Submits a new entity
+// ¢ PUT app.put() Updates an entity by complete replacement
+// ¢ PATCH app.patch() Updates an entity partially
+// ¢ DELETE app.delete() and app.del() Deletes an existing entity
+// ¢ OPTIONS app.options() Retrieves the capabilities of the server
+
 // Exercise
 // Create an Express application that implements a Rest API for an entity // called grades:
 
 // [{id: 1, name: “Asaad Saad", course: "CS572", grade: 95}]
 
-// Write routes for the following CRUD operations and use the proper
-// HTTP verbs (GET one and all, POST, and DELETE).
-// ° Test with HTTP Client extension for VSCode.
-// * Your API accepts and returns JSON data.
-// * Log all requests to a file access. log using morgan middleware.
-// ¢ Write a custom middleware to verify if a user passes a valid JSON.
-// * Accept cross domain XHR requests using cors middleware.
+// Write routes for the following CRUD operations and use the proper                    //DEPENDENCIES
+// HTTP verbs (GET one and all, POST, and DELETE).                                      //INSTANTIATIONS
+// ° Test with HTTP Client extension for VSCode.                                        //CONFIGURATIONS
+// * Your API accepts and returns JSON data.                                            //MIDDLEWARE
+// * Log all requests to a file access. log using morgan middleware.                    //ROUTES
+// ¢ Write a custom middleware to verify if a user passes a valid JSON.                 //ERROR HANDLING
+// * Accept cross domain XHR requests using cors middleware.                            //BOOTUP
 
-let express=require('express');
+
+
+let express=require('express');             //Dependencies
 let request = require("request");
 const bodyParser = require('body-parser');
 var fs = require('fs')
@@ -27,8 +40,10 @@ let grades=[
     {id:"3",name:'laura',course:'BDA',grade:60}
 ]
 
-let app=express();
+let app=express(); // instantiations
+
 app.use(express.json());
+
 let accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' }) 
 app.use(morgan('combined', { stream: accessLogStream }))
 app.use(cors());
@@ -52,6 +67,9 @@ app.use(function(req,res, next){
 
 //Get
 app.get('/grades',function(req,res){
+    let pagina = req.query.p;
+    console.log(pagina);
+   // console.log(req);
     res.send(grades);
     res.end();   
 }
@@ -100,5 +118,5 @@ app.delete('/grades/:id',function(req,res){
      res.end();   
 }
 );
-
+console.log(`start listen port ${port}`);
 app.listen(port);

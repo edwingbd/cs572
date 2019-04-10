@@ -23,7 +23,7 @@ db.zips.aggregate([{$group:{_id:{state:'$state',city:'$city'},quantity:{$sum:1}}
 // 4. Display the least populated city in each state
 
 db.zips.aggregate([
-    {$group:{_id:{state:'$state',city:'$city'},population:{$sum:'pop'}}},
+    {$group:{_id:{state:'$state',city:'$city'},population:{$sum:'$pop'}}},
     {$sort:{state:1, population:1}},
-    {$group:{_id:{state:'$_id.state'},population2:{$first:'$population'}},city:{$first:'$_id.city'}},
-    {$project:{_id:1,population:'$population2'}}])
+    {$group:{_id:{state:'$_id.state'},population2:{$first:'$population'},city:{$first:'$_id.city'}}},
+    {$project:{_id:0,population:'$population2',city:'$city',state:'$_id.state'}}])

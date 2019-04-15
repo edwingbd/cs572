@@ -40,7 +40,7 @@ router.delete('/:task_id',(req,res,next)=>{
 
 router.patch('/:task_id',(req,res,next)=>{
     let id= req.parameters.task_id;
-    req.db.collection('tasks').update({'_id':id},{$set:{'status':1,'adsf':'adsf'}})
+    req.db.collection('tasks').update({'_id':id},{'$set':{'status':1,'adsf':'adsf'}})
     console.log(id);
     res.send('ok');
     //res.end();

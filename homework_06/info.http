@@ -2,35 +2,41 @@
 GET http://localhost:3000/lectures HTTP/1.1
 ###
 
-GET http://localhost:3000/lectures/5cabe6021c9d44000025afb3 HTTP/1.1
-GET http://localhost:3000/lectures/MWA HTTP/1.1
+GET http://localhost:3000/lectures/5cae70cc049ac2195ccafbd4 HTTP/1.1
 
 ###
 
+//create 
 POST http://localhost:3000/lectures HTTP/1.1
 Content-Type: application/json
 
 {
     "data":{
-        "course":"EdwinCouse",
-        "lecture":"lecture lilii"
+        "course":"Edwin  Couse ejjjjdw",
+        "lecture":"lecture lala la lola"
     }
 }
 
 ###
+// error create
 POST http://localhost:3000/lectures HTTP/1.1
 Content-Type: application/json
 
 ####
-DELETE http://localhost:3000/lectures/5cae6322baacc0408078c574  HTTP/1.1
+
+//delete equivalent to remove in the DB
+DELETE http://localhost:3000/lectures/5cae6b588eff611888b53f1c  HTTP/1.1
 
 ###
-PUT http://localhost:3000/lectures/5cae66fc1ac3e503fca347c3 HTTP/1.1
+// UPdate information
+PUT http://localhost:3000/lectures/5cae6b578eff611888b53f18 HTTP/1.1
 Content-Type: application/json
 
 {
     "data":{
-        "course":"EdwinCouse",
-        "lecture":"lecture Massharishosa"
+        "course":"EdwinCouse df4",
+        "lecture":"lecture Massharishosa2"
     }
 }
+###
+GET http://localhost:3000/lectures HTTP/1.1

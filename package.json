@@ -25,13 +25,15 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "jade": "^1.11.0",
     "memory-cache": "^0.2.0",
     "module": "^1.2.5",
     "mongodb": "^3.2.3",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
     "request": "^2.88.0",
-    "rxjs": "^6.4.0"
+    "rxjs": "^6.4.0",
+    "view": "^1.1.1"
   },
   "devDependencies": {
     "prettier": "1.16.4"

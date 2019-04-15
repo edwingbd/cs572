@@ -1,0 +1,30 @@
+POST  http://localhost:3000/tasks   HTTP/1.1 
+Content-Type: application/json
+
+{
+    "data": {
+        "task":"p55errito1chandoso",
+        "status":0,
+        "create_date":"Date.now()",
+        "update_date":"Date.now()"
+    }
+}
+
+###
+
+POST http://localhost:3000/tasks HTTP/1.1
+Content-Type: application/json
+
+{
+   "data": {
+        "task":"p55errito1chanlllldoso",
+        "status":0,
+        "create_date":"Date.now()",
+        "update_date":"Date.now()"
+    }
+}
+###
+DELETE  http://localhost:3000/tasks/5caf9b763e54bbb465bcb0fa HTTP/1.1
+
+####
+GET  http://localhost:3000/tasks HTTP/1.1

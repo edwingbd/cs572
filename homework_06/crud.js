@@ -28,13 +28,6 @@ client.connect(err => {
     db = client.db('homework07')
 })
 
-//data inicial
-/*let grades = [
-    { id: "1", name: 'edwin Bernal', course: 'MWA', grade: 95 },
-    { id: "2", name: 'Andres Mendez', course: 'Alogorithm', grade: 92 },
-    { id: "3", name: 'laura', course: 'BDA', grade: 60 }
-]*/
-
 let app = express();  //instanciation
 app.use(express.json());
 let accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
@@ -72,7 +65,7 @@ app.post('/lectures', function (req, res) {
     req.db.collection('lectures').insertOne(req.body.data, (errinsert, resinsert) => {
         if (errinsert) throw res;
         console.log("creation of lecture");
-        res.send(req.body);
+        res.send(req.body.data._id);
         res.end();
     })
 });
@@ -83,8 +76,8 @@ app.put('/lectures/:id', function (req, res) {
     const id = req.params.id;
     const query = { _id: ObjectID(id) }
     req.db.collection('lectures').update(query, req.body.data, (err, data) => {
-        console.log(data.result.n)
-        res.json(data.result.n);
+        console.log(data.result)
+        res.json(data.result);
         //res.send("element(s) modified succesfully+"+data.result.n);
     })
 });
@@ -99,6 +92,8 @@ app.delete('/lectures/:id', function (req, res) {
 });
 
 console.log(`Start listening port ${port}`);
+
+console.log(null || '' || 545565 || port )
 app.listen(port);
 
 

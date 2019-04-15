@@ -23,6 +23,13 @@ app.enable('case sensitive routing');//configuration
 app.enable('strict routing');//configuration
 app.enable('trust proxy');//configuration
 
+// 
+app.set("trust proxy",true);
+
+app.get("/favicon.ico",(req,res)=>{
+    res.end();
+})
+
 app.set('port', process.env.PORT || 3005);// configuracion
 //console.log(process.env);
 const port = app.get('port');
@@ -66,8 +73,7 @@ function sendUserData(usersResponseRandomuser, Response3) {
         'Cache-Control': 'private, max-age=86400',
         'Last-Modified': new Date()
     });
-    Response3.set('link',buildPaging(page))
-    Response3.links(buildPaging(page));
+    Response3.links() (buildPaging(page));
     console.log("pagino ");
     Response3.send(usersResponseRandomuser.data);
     console.log("ya envie la informacion");
@@ -78,6 +84,7 @@ function buildPaging(page) {
     const prevUrl = `${userAPI}&page=${page - 1}`;
     const nextUrl = `${userAPI}&page=${page + 1}`;
     const lastUrl = `${userAPI}&page=100`;//supuesto
+
     const paging = {
         first:firstUrl,
         next: nextUrl,

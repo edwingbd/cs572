@@ -8,6 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Homework12';
   public parentCounter = 34;
+  public infor;
+  showOutputData(info){
+    this.infor=info;
+    console.log('llego='+info);
+  }
 }
 
 

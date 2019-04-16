@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Homework12';
+  public parentCounter = 34;
 }
+
+

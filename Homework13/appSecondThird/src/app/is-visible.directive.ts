@@ -8,13 +8,13 @@ export class IsVisibleDirective {
   constructor(private element: ElementRef,
               private render2: Renderer2) {
                 console.log("paso1");
-                setTimeout(()=>{
-                render2.setStyle(element.nativeElement,"display","none");
+                //setTimeout(()=>{
+                render2.setStyle(element.nativeElement,"display","block");
                 render2.setStyle(element.nativeElement, "backgroundColor","gray");
                 //render2.setStyle(element.nativeElement, "visibility","hidden");
                 console.log("paso2");
                 console.log(element.nativeElement);
-              },0);
+              //},0);
               console.log("paso3");
                }
 

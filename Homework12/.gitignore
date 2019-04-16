@@ -6,13 +6,6 @@
 !/src/app/app
 
 
-/e2e
-/src/assets
-/src/environments
-
-/src/app/*
-!/src/app/app
-
 # compiled output
 /dist
 /tmp

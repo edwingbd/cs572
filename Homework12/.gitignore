@@ -1,9 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 #add to remove things that is not interest
-/*
-!/src/app/component-counter.component.ts
-!/src/app/app
+
 
 
 # compiled output

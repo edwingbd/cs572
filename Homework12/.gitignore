@@ -3,7 +3,7 @@
 #add to remove things that is not interest
 /*
 !/src/app/app
-!/src/app/component-counter.component.ts
+!/src/component-counter.component.ts
 
 /e2e
 /src/assets

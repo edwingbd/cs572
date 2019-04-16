@@ -2,8 +2,9 @@
 
 #add to remove things that is not interest
 /*
+!/src/app/component-counter.component.ts
 !/src/app/app
-!/src/component-counter.component.ts
+
 
 /e2e
 /src/assets

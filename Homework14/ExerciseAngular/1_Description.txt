@@ -1,0 +1,31 @@
+Exercise
+
+AppModule has only one service: create a service that has a method getOnlineData
+that returns an array of JSON objects from https://randomuser.me/api/?results=10
+and save the results in localStorage.
+
+The service has another method getcachedData that return the JSON objects from
+localStorage.
+
+When App starts, it should fetch all the online data, stringify it, and save it into the
+localStorage.
+
+Exercise part 2
+
+Create another feature module called Users that is responsible for showing a list of
+users, your application should only load this module upon navigating via users link.
+Within Users module we have two components:
+
+* users component
+
+* userdetails component
+
+Both components will retrieve data from localStorage
+
+When users click on users/:uuid you should display userdetails child component
+with full details about the user.
+
+If a user tried to visit users/:uuid page without passing a correct uuid, then your
+app must redirect them to a friendly error page. (use Guards).
+
+Write this exercise with Lazy Loading in mind.

@@ -7,8 +7,10 @@ export class MakeBiggerDirective {
 
   constructor(private element:ElementRef,
     private render2: Renderer2) {
-      render2.setProperty(element.nativeElement,"onClick",'function () {console.log("hola");}')
-      render2.setStyle(element.nativeElement,"font.size.px","font.size.px+2" )
+      render2.listen(element.nativeElement,"click",(ev)=>{console.log("hola");console.log(ev);} )
+      render2.setStyle(element.nativeElement,"font-size","22px");
+      render2.setProperty(element.nativeElement,"onClick",'function () {console.log("hola");}');
+      
      }
 
 }
